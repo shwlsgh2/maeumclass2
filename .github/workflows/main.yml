@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문장의 개념과 성분 마스터하기</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .text-gradient {
+        background: linear-gradient(to right, #6366f1, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      /* Optional: Add custom animations if needed, though Tailwind has some defaults */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+      /* Hidden by default */
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 font-sans p-4 sm:p-8 flex flex-col items-center">
+        <header class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-lg mb-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gradient mb-2">
+              문장의 개념과 성분 마스터하기 📚
+            </h1>
+            <p class="text-gray-600 text-lg sm:text-xl">
+              국어 문법 포기하지마!!
+            </p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center gap-4 mb-10">
+            <button id="tab-concept" class="tab-button px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 bg-blue-600 text-white shadow-md">문장의 개념</button>
+            <button id="tab-structure" class="tab-button px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-blue-200">문장의 기본 구조</button>
+            <button id="tab-component" class="tab-button px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-blue-200">문장 성분</button>
+        </nav>
+
+        <main class="w-full max-w-4xl bg-white p-6 rounded-xl shadow-lg">
+            <!-- 문장의 개념 Section -->
+            <section id="content-concept" class="tab-content active animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">1. 문장의 개념 ✨</h2>
+                <div class="space-y-4 text-lg text-gray-700">
+                    <p>
+                        <strong>문장</strong>은 생각이나 감정을 완결된 내용으로 표현하는 가장 작은 단위. 마침표(.), 물음표(?), 느낌표(!)와 같은 문장 부호로 끝남.
+                    </p>
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        예시:
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>하늘이 높다.</li>
+                            <li>하늘이 높아?</li>
+                            <li>하늘이 높구나!</li>
+                        </ul>
+                    </div>
+                    <p>
+                        문장은 단순히 단어들의 나열이 아니라, 특정한 의미를 전달하고 싶을 때 사용하는 완결된 표현 단위임.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 문장의 기본 구조 Section -->
+            <section id="content-structure" class="tab-content animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">2. 문장의 기본 구조 🏗️</h2>
+                <div class="space-y-6 text-lg text-gray-700">
+                    <p>
+                        문장은 다양한 형태로 나타나지만, 크게 세 가지 기본 구조로 나눌 수 있음.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-200 flex flex-col justify-between">
+                            <div>
+                                <p class="font-semibold text-green-700 mb-2">동작을 나타낼 때:</p>
+                                <p class="text-xl font-bold text-green-800 mb-3">누가/무엇이 + 어찌하다</p>
+                                <p class="text-sm text-gray-600">예시: 철수가 <span class="font-bold">달린다.</span> (철수가 - 주어, 달린다 - 서술어)</p>
+                            </div>
+                            <button onclick="checkStructureAnswer('action')" class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors shadow-md">
+                                예시 확인하기
+                            </button>
+                        </div>
+
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200 flex flex-col justify-between">
+                            <div>
+                                <p class="font-semibold text-yellow-700 mb-2">상태나 성질을 나타낼 때:</p>
+                                <p class="text-xl font-bold text-yellow-800 mb-3">누가/무엇이 + 어떠하다</p>
+                                <p class="text-sm text-gray-600">예시: 날씨가 <span class="font-bold">좋다.</span> (날씨가 - 주어, 좋다 - 서술어)</p>
+                            </div>
+                            <button onclick="checkStructureAnswer('state')" class="mt-4 bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors shadow-md">
+                                예시 확인하기
+                            </button>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col justify-between">
+                            <div>
+                                <p class="font-semibold text-purple-700 mb-2">대상을 지정할 때:</p>
+                                <p class="text-xl font-bold text-purple-800 mb-3">누가/무엇이 + 무엇이다</p>
+                                <p class="text-sm text-gray-600">예시: 민수는 <span class="font-bold">학생이다.</span> (민수는 - 주어, 학생이다 - 서술어)</p>
+                            </div>
+                            <button onclick="checkStructureAnswer('designation')" class="mt-4 bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors shadow-md">
+                                예시 확인하기
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="structure-feedback" class="mt-6 p-4 rounded-lg bg-blue-100 border border-blue-300 text-blue-800 font-medium" style="display: none;">
+                        <p id="structure-feedback-text"></p>
+                        <p id="structure-correct-answer-text"></p>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">개념 적용하기 💡</h3>
+                    <p class="mb-4">다음 문장의 구조를 올바르게 연결하시오.</p>
+                    <div id="sentence-match-quiz" class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <!-- Quiz questions will be rendered here by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 문장 성분 Section -->
+            <section id="content-component" class="tab-content animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 pb-2">3. 문장 성분 🧩</h2>
+                <div class="space-y-6 text-lg text-gray-700">
+                    <p>
+                        <strong>문장 성분</strong>은 문장 안에서 일정한 문법적 기능을 하는 부분을 말해요. 크게 세 가지로 나눌 수 있어요.
+                    </p>
+
+                    <ul class="list-disc list-inside space-y-2 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <li>
+                        <strong>주성분:</strong> 문장을 이루는 데 꼭 필요한 핵심 성분이에요. (예: 주어, 서술어, 목적어, 보어)
+                      </li>
+                      <li>
+                        <strong>부속성분:</strong> 주성분을 꾸며 주거나 의미를 더해 주는 성분이에요. (예: 관형어, 부사어)
+                      </li>
+                      <li>
+                        <strong>독립성분:</strong> 다른 문장 성분과 직접적인 관계를 맺지 않고 독립적으로 쓰이는 성분이에요. (예: 독립어)
+                      </li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">개념 확인 📝</h3>
+
+                    <!-- Question 1 -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-medium text-lg mb-2">
+                            1. 생각이나 감정을 완결된 내용으로 표현하는 가장 작은 단위를 <input type="text" id="q1-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-24 text-center" placeholder="..." />(이)라고 한다.
+                        </p>
+                        <button onclick="checkComponentAnswer('q1')" class="mt-3 bg-blue-500 text-white py-1.5 px-4 rounded-lg hover:bg-blue-600 transition-colors text-base shadow-sm">
+                            확인
+                        </button>
+                        <p id="q1-feedback" class="mt-2 text-sm" style="display: none;"></p>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-medium text-lg mb-2">2. 다음 설명이 맞으면 O, 틀리면 X를 표시하시오.</p>
+                        <div class="ml-4 space-y-2">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                                <p class="font-medium text-lg mr-2 flex-shrink-0">(1) 문장 부호는 문장의 시작과 끝을 나타낸다.</p>
+                                <div class="flex items-center mt-2 sm:mt-0">
+                                    <input type="text" id="q2-1-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-10 text-center uppercase" maxLength="1" placeholder="O/X" />
+                                    <span id="q2-1-status" class="ml-2 text-sm" style="display: none;"></span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                                <p class="font-medium text-lg mr-2 flex-shrink-0">(2) 주어는 문장 안에서 일정한 문법적 기능을 한다.</p>
+                                <div class="flex items-center mt-2 sm:mt-0">
+                                    <input type="text" id="q2-2-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-10 text-center uppercase" maxLength="1" placeholder="O/X" />
+                                    <span id="q2-2-status" class="ml-2 text-sm" style="display: none;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="checkComponentAnswer('q2-1', 'q2-2')" class="mt-3 bg-blue-500 text-white py-1.5 px-4 rounded-lg hover:bg-blue-600 transition-colors text-base shadow-sm">
+                            확인
+                        </button>
+                        <p id="q2-feedback" class="mt-2 text-sm" style="display: none;"></p>
+                    </div>
+
+                    <!-- Question 3 (Was Q4) -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-medium text-lg mb-2">3. 문장을 이루는 데 꼭 필요한 핵심 성분들을 묶어 <input type="text" id="q3-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-32 text-center" placeholder="..." />(이)라고 합니다.</p>
+                        <button onclick="checkComponentAnswer('q3')" class="mt-3 ml-3 bg-blue-500 text-white py-1.5 px-4 rounded-lg hover:bg-blue-600 transition-colors text-base shadow-sm">
+                            확인
+                        </button>
+                        <p id="q3-feedback" class="mt-2 text-sm" style="display: none;"></p>
+                    </div>
+
+                    <!-- Question 4 (Was Q5) -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-medium text-lg mb-2">4. 주성분을 꾸며 주거나 의미를 더해 주는 성분들을 <input type="text" id="q4-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-32 text-center" placeholder="..." />(이)라고 합니다.</p>
+                        <button onclick="checkComponentAnswer('q4')" class="mt-3 ml-3 bg-blue-500 text-white py-1.5 px-4 rounded-lg hover:bg-blue-600 transition-colors text-base shadow-sm">
+                            확인
+                        </button>
+                        <p id="q4-feedback" class="mt-2 text-sm" style="display: none;"></p>
+                    </div>
+
+                    <!-- Question 5 (Was Q6) -->
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-medium text-lg mb-2">5. 다른 문장 성분과 직접적인 관계를 맺지 않고 독립적으로 쓰이는 성분은 <input type="text" id="q5-input" class="border-b-2 border-blue-300 outline-none focus:border-blue-500 px-1 py-0.5 w-32 text-center" placeholder="..." />(이)라고 합니다.</p>
+                        <button onclick="checkComponentAnswer('q5')" class="mt-3 ml-3 bg-blue-500 text-white py-1.5 px-4 rounded-lg hover:bg-blue-600 transition-colors text-base shadow-sm">
+                            확인
+                        </button>
+                        <p id="q5-feedback" class="mt-2 text-sm" style="display: none;"></p>
+                    </div>
+
+                    <div id="learning-progress-section" class="mt-8 p-6 bg-purple-100 rounded-lg border border-purple-300 shadow-md" style="display: none;">
+                        <h3 class="text-2xl font-bold text-purple-800 mb-4">학습 목표 도달 정도 📊</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-4 mb-3">
+                            <div id="accuracy-bar" class="bg-purple-600 h-4 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                        </div>
+                        <p id="accuracy-text" class="text-xl font-bold text-purple-800 mb-4 text-center">
+                            정답률: 0.0%
+                        </p>
+                        <p id="feedback-message" class="text-lg text-gray-700 leading-relaxed"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-10 text-gray-500 text-sm">
+            &copy; 2025 문법 마스터 앱. 노진호샘 모든 권리 보유.
+        </footer>
+    </div>
+
+    <script>
+        // --- 탭 전환 로직 ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            function activateTab(tabId) {
+                tabs.forEach(tab => {
+                    tab.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                    tab.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-blue-200');
+                });
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                const activeTabButton = document.getElementById(tabId);
+                activeTabButton.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-blue-200');
+                activeTabButton.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+
+                const activeContentId = 'content-' + tabId.replace('tab-', '');
+                document.getElementById(activeContentId).classList.add('active');
+
+                // 문장 성분 탭으로 이동할 때마다 퀴즈 상태를 초기화하고 렌더링
+                if (tabId === 'tab-component') {
+                    initializeComponentQuiz();
+                    renderComponentQuestions();
+                } else if (tabId === 'tab-structure') {
+                    initializeStructureQuiz();
+                    renderStructureQuestions();
+                }
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (event) => {
+                    activateTab(event.target.id);
+                });
+            });
+
+            // 초기 탭 활성화
+            activateTab('tab-concept');
+        });
+
+        // --- 문장의 기본 구조 (Structure Section) 로직 ---
+        let structureFeedbackVisible = false;
+        function checkStructureAnswer(structureType) {
+            const feedbackDiv = document.getElementById('structure-feedback');
+            const feedbackText = document.getElementById('structure-feedback-text');
+            const correctAnswerText = document.getElementById('structure-correct-answer-text');
+
+            if (structureType === 'action') {
+                feedbackText.innerHTML = '정답! 👍 이 문장은 주어의 동작을 나타냅니다.';
+                correctAnswerText.innerHTML = '선택된 문장 구조: <span class="font-bold">누가/무엇이 + 어찌하다</span>';
+            } else if (structureType === 'state') {
+                feedbackText.innerHTML = '정답! 👍 이 문장은 주어의 상태나 성질을 나타냅니다.';
+                correctAnswerText.innerHTML = '선택된 문장 구조: <span class="font-bold">누가/무엇이 + 어떠하다</span>';
+            } else if (structureType === 'designation') {
+                feedbackText.innerHTML = '정답! 👍 이 문장은 주어를 지정하는 문장입니다.';
+                correctAnswerText.innerHTML = '선택된 문장 구조: <span class="font-bold">누가/무엇이 + 무엇이다</span>';
+            }
+
+            feedbackDiv.style.display = 'block';
+            structureFeedbackVisible = true;
+        }
+
+        // Structure Quiz (Sentence Match Quiz)
+        let structureQuizQuestions = [];
+        const structureQuizOptions = [
+            '누가/무엇이 + 어찌하다',
+            '누가/무엇이 + 어떠하다',
+            '누가/무엇이 + 무엇이다',
+        ];
+
+        function initializeStructureQuiz() {
+            structureQuizQuestions = [
+                { id: 1, sentence: '경주마가 달린다.', correct: '누가/무엇이 + 어찌하다', userAnswer: '', result: '' },
+                { id: 2, sentence: '사슴은 동물이다.', correct: '누가/무엇이 + 무엇이다', userAnswer: '', result: '' },
+                { id: 3, sentence: '바닷물이 새파랗다.', correct: '누가/무엇이 + 어떠하다', userAnswer: '', result: '' },
+            ];
+        }
+
+        function renderStructureQuestions() {
+            const quizContainer = document.getElementById('sentence-match-quiz');
+            let html = '';
+            structureQuizQuestions.forEach(q => {
+                html += `
+                    <div class="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                        <p class="text-lg font-medium mb-2 sm:mb-0 sm:mr-4 w-full sm:w-1/2">(${q.id}) ${q.sentence}</p>
+                        <div class="w-full sm:w-1/2 flex items-center">
+                            <select
+                                id="structure-q${q.id}-select"
+                                onchange="handleStructureAnswerChange(${q.id}, this.value)"
+                                class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-base"
+                            >
+                                <option value="">선택하세요</option>
+                                ${structureQuizOptions.map(option => `<option value="${option}" ${q.userAnswer === option ? 'selected' : ''}>${option}</option>`).join('')}
+                            </select>
+                            <span id="structure-q${q.id}-result" class="ml-3 text-xl">${q.result}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `
+                <button onclick="submitStructureQuiz()" class="mt-5 bg-blue-600 text-white py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors shadow-md text-lg">
+                    정답 확인
+                </button>
+                <div id="structure-quiz-results" class="mt-5 p-4 bg-yellow-50 rounded-lg border border-yellow-200" style="display: none;">
+                    <h4 class="font-semibold text-yellow-800 mb-2">결과:</h4>
+                    <div id="structure-quiz-result-details"></div>
+                </div>
+            `;
+            quizContainer.innerHTML = html;
+        }
+
+        function handleStructureAnswerChange(id, value) {
+            const questionIndex = structureQuizQuestions.findIndex(q => q.id === id);
+            if (questionIndex !== -1) {
+                structureQuizQuestions[questionIndex].userAnswer = value;
+            }
+            document.getElementById('structure-quiz-results').style.display = 'none'; // Hide results on change
+        }
+
+        function submitStructureQuiz() {
+            let allCorrect = true;
+            let resultDetailsHtml = '';
+            structureQuizQuestions.forEach(q => {
+                const isCorrect = q.userAnswer === q.correct;
+                q.result = isCorrect ? '✅' : '❌';
+                document.getElementById(`structure-q${q.id}-result`).innerHTML = q.result;
+                if (!isCorrect) allCorrect = false;
+
+                resultDetailsHtml += `
+                    <p class="text-base ${isCorrect ? 'text-green-700' : 'text-red-700'}">
+                        (${q.id}) ${q.sentence} - 선택: ${q.userAnswer || '미선택'}, 정답: ${q.correct}
+                    </p>
+                `;
+            });
+            document.getElementById('structure-quiz-result-details').innerHTML = resultDetailsHtml;
+            document.getElementById('structure-quiz-results').style.display = 'block';
+        }
+
+        // --- 문장 성분 (Component Section) 로직 ---
+        let componentQuizQuestions = [];
+
+        function initializeComponentQuiz() {
+            componentQuizQuestions = [
+                { id: 'q1', type: 'fill', text: '1. 생각이나 감정을 완결된 내용으로 표현하는 가장 작은 단위를 <input/>(이)라고 한다.', correct: '문장', userAnswer: '', status: '', attempts: 0 },
+                { id: 'q2_1', type: 'ox', text: '(1) 문장 부호는 문장의 시작과 끝을 나타낸다.', correct: 'X', userAnswer: '', status: '', attempts: 0 },
+                { id: 'q2_2', type: 'ox', text: '(2) 주어는 문장 안에서 일정한 문법적 기능을 한다.', correct: 'O', userAnswer: '', status: '', attempts: 0 },
+                { id: 'q3', type: 'fill', text: '3. 문장을 이루는 데 꼭 필요한 핵심 성분들을 묶어 <input/>(이)라고 합니다.', correct: '주성분', userAnswer: '', status: '', attempts: 0 },
+                { id: 'q4', type: 'fill', text: '4. 주성분을 꾸며 주거나 의미를 더해 주는 성분들을 <input/>(이)라고 합니다.', correct: '부속성분', userAnswer: '', status: '', attempts: 0 },
+                { id: 'q5', type: 'fill', text: '5. 다른 문장 성분과 직접적인 관계를 맺지 않고 독립적으로 쓰이는 성분은 <input/>(이)라고 합니다.', correct: '독립성분', userAnswer: '', status: '', attempts: 0 },
+            ];
+            document.getElementById('learning-progress-section').style.display = 'none'; // Hide results on init
+        }
+
+        function renderComponentQuestions() {
+            // Q1 rendering
+            const q1Input = document.getElementById('q1-input');
+            const q1Feedback = document.getElementById('q1-feedback');
+            const q1 = componentQuizQuestions.find(q => q.id === 'q1');
+            if (q1Input) q1Input.value = q1.userAnswer;
+            if (q1Feedback) {
+                q1Feedback.style.display = q1.status ? 'block' : 'none';
+                q1Feedback.className = `mt-2 text-sm ${q1.status === 'correct' ? 'text-green-700' : 'text-red-700'}`;
+                q1Feedback.innerHTML = `${q1.status === 'correct' ? '✅ 정답입니다!' : '❌ 다시 생각해 보세요.'} (시도 횟수: ${q1.attempts})`;
+            }
+
+            // Q2 rendering
+            const q2_1Input = document.getElementById('q2-1-input');
+            const q2_2Input = document.getElementById('q2-2-input');
+            const q2_1Status = document.getElementById('q2-1-status');
+            const q2_2Status = document.getElementById('q2-2-status');
+            const q2_1 = componentQuizQuestions.find(q => q.id === 'q2_1');
+            const q2_2 = componentQuizQuestions.find(q => q.id === 'q2_2');
+
+            if (q2_1Input) q2_1Input.value = q2_1.userAnswer;
+            if (q2_2Input) q2_2Input.value = q2_2.userAnswer;
+
+            if (q2_1Status) {
+                q2_1Status.style.display = q2_1.status ? 'inline' : 'none';
+                q2_1Status.className = `ml-2 text-sm ${q2_1.status === 'correct' ? 'text-green-700' : 'text-red-700'}`;
+                q2_1Status.innerHTML = q2_1.status === 'correct' ? '✅' : '❌';
+            }
+            if (q2_2Status) {
+                q2_2Status.style.display = q2_2.status ? 'inline' : 'none';
+                q2_2Status.className = `ml-2 text-sm ${q2_2.status === 'correct' ? 'text-green-700' : 'text-red-700'}`;
+                q2_2Status.innerHTML = q2_2.status === 'correct' ? '✅' : '❌';
+            }
+
+            // Q3, Q4, Q5 rendering (loop for simplicity)
+            ['q3', 'q4', 'q5'].forEach(id => {
+                const q = componentQuizQuestions.find(question => question.id === id);
+                const input = document.getElementById(`${id}-input`);
+                const feedback = document.getElementById(`${id}-feedback`);
+                if (input) input.value = q.userAnswer;
+                if (feedback) {
+                    feedback.style.display = q.status ? 'block' : 'none';
+                    feedback.className = `mt-2 text-sm ${q.status === 'correct' ? 'text-green-700' : 'text-red-700'}`;
+                    feedback.innerHTML = `${q.status === 'correct' ? '✅ 정답입니다!' : '❌ 다시 생각해 보세요.'} (시도 횟수: ${q.attempts})`;
+                }
+            });
+        }
+
+        function handleComponentAnswerChange(id, value) {
+            const questionIndex = componentQuizQuestions.findIndex(q => q.id === id);
+            if (questionIndex !== -1) {
+                componentQuizQuestions[questionIndex].userAnswer = value;
+                componentQuizQuestions[questionIndex].status = ''; // Reset status on change
+            }
+            document.getElementById('learning-progress-section').style.display = 'none'; // Hide results on change
+            renderComponentQuestions(); // Re-render to clear individual feedback
+        }
+
+        // Attach event listeners for inputs to clear feedback on change
+        document.addEventListener('input', (event) => {
+            const id = event.target.id;
+            if (id.startsWith('q1-input')) handleComponentAnswerChange('q1', event.target.value);
+            else if (id.startsWith('q2-1-input')) handleComponentAnswerChange('q2_1', event.target.value);
+            else if (id.startsWith('q2-2-input')) handleComponentAnswerChange('q2_2', event.target.value);
+            else if (id.startsWith('q3-input')) handleComponentAnswerChange('q3', event.target.value);
+            else if (id.startsWith('q4-input')) handleComponentAnswerChange('q4', event.target.value);
+            else if (id.startsWith('q5-input')) handleComponentAnswerChange('q5', event.target.value);
+        });
+
+
+        function checkComponentAnswer(...ids) {
+            ids.forEach(id => {
+                const questionIndex = componentQuizQuestions.findIndex(q => q.id === id);
+                if (questionIndex !== -1) {
+                    const q = componentQuizQuestions[questionIndex];
+                    let isCorrect = false;
+
+                    if (q.type === 'fill') {
+                        isCorrect = q.userAnswer.trim().toUpperCase() === q.correct.toUpperCase();
+                    } else if (q.type === 'ox') {
+                        isCorrect = q.userAnswer.trim().toUpperCase() === q.correct.toUpperCase();
+                    }
+
+                    q.status = isCorrect ? 'correct' : 'incorrect';
+                    q.attempts += 1;
+                }
+            });
+            renderComponentQuestions(); // Update UI for individual questions
+            calculateAndDisplayResults(); // Update overall results
+            document.getElementById('learning-progress-section').style.display = 'block'; // Show overall results
+        }
+
+
+        function calculateAndDisplayResults() {
+            const totalQuestions = componentQuizQuestions.length;
+            const correctQuestions = componentQuizQuestions.filter(q => q.status === 'correct').length;
+            const overallAccuracy = (correctQuestions / totalQuestions) * 100;
+
+            document.getElementById('accuracy-bar').style.width = `${overallAccuracy}%`;
+            document.getElementById('accuracy-text').innerText = `정답률: ${overallAccuracy.toFixed(1)}%`;
+
+            let message = '';
+            const allCorrect = componentQuizQuestions.every(q => q.status === 'correct');
+            const anyIncorrectThenCorrected = componentQuizQuestions.some(q => q.status === 'correct' && q.attempts > 1);
+
+            if (overallAccuracy === 100) {
+                if (anyIncorrectThenCorrected) {
+                    message = '🎉 모든 문제를 맞혔어요! 중간에 어려움이 있었지만, 포기하지 않고 노력해서 정답에 도달했어요. 꾸준함이 돋보입니다!';
+                } else {
+                    message = '💯 완벽해요! 모든 문제를 한 번에 정확하게 맞혔습니다. 훌륭한 이해력입니다!';
+                }
+            } else if (overallAccuracy >= 70) {
+                message = '👍 잘했어요! 대부분의 개념을 이해하고 있습니다. 몇 가지 문제에서 다시 생각해보면 더 완벽해질 수 있어요.';
+            } else if (overallAccuracy >= 40) {
+                message = '✍️ 더 노력해볼까요? 핵심 개념은 잡혀 있지만, 더 많은 연습이 필요해 보입니다. 다시 한번 개념을 복습하고 문제를 풀어봅시다!';
+            } else {
+                message = '🤔 아직은 어려운 부분이 많아 보여요. 걱정하지 마세요! 처음부터 천천히 개념을 다시 살펴보고, 예시를 통해 충분히 이해하는 시간을 가져봐요.';
+            }
+            document.getElementById('feedback-message').innerText = message;
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeStructureQuiz(); // 문장 구조 퀴즈 초기화
+            renderStructureQuestions(); // 문장 구조 퀴즈 렌더링
+            initializeComponentQuiz(); // 문장 성분 퀴즈 초기화
+            renderComponentQuestions(); // 문장 성분 퀴즈 렌더링
+        });
+
+    </script>
+</body>
+</html>
